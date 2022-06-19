@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "529029168776",
+    "project_id": "pa-mobile-e19",
+    "storage_bucket": "pa-mobile-e19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529029168776:android:36c5abc6e3bed697a3693d",
+        "android_client_info": {
+          "package_name": "com.example.projekakhir_mobile_e19_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529029168776-0bcj1alfeebmio04iblf3664ngi19crg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWYymDhPuv7ULPyOYzicYJlzfc-fYepXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529029168776-0bcj1alfeebmio04iblf3664ngi19crg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
