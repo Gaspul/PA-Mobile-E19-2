@@ -42,7 +42,7 @@ class ItemCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Coffe    : $coffeamount g",
+                  "Coffee    : $coffeamount g",
                 ),
                 Text(
                   "Water    : $wateramount ml",

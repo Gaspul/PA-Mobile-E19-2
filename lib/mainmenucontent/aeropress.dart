@@ -84,55 +84,6 @@ class _addaerorecipeState extends State<addaerorecipe> {
     return Scaffold(
       body: Stack(
         children: [
-          ListView(
-            children: [
-              //// VIEW DATA HERE
-              StreamBuilder<QuerySnapshot>(
-                stream: aeropress.snapshots(),
-                builder: (_, snapshot) {
-                  return (snapshot.hasData)
-                      ? Column(
-                          children: snapshot.data!.docs
-                              .map(
-                                (e) => ItemCard(
-                                  e.get('Recipe Name'),
-                                  e.get('Coffee Amount'),
-                                  e.get('Water Amount'),
-                                  e.get('Heat'),
-                                  e.get('Process'),
-                                  onUpdate: () {
-                                    aeropress.doc(e.id).update({
-                                      'Recipe Name': namaresepController.text,
-                                      'Coffee Amount': int.tryParse(
-                                              coffeamountController.text) ??
-                                          0,
-                                      'Water Amount': int.tryParse(
-                                              wateramountController.text) ??
-                                          0,
-                                      'Heat':
-                                          int.tryParse(heatController.text) ??
-                                              0,
-                                      'Process': prosesController.text,
-                                    });
-                                    namaresepController.text = '';
-                                    coffeamountController.text = '';
-                                    wateramountController.text = '';
-                                    heatController.text = '';
-                                    prosesController.text = '';
-                                  },
-                                  onDelete: () {
-                                    aeropress.doc(e.id).delete();
-                                  },
-                                ),
-                              )
-                              .toList(),
-                        )
-                      : Text('Loading...');
-                },
-              ),
-              SizedBox(height: 600)
-            ],
-          ),
           Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -145,8 +96,7 @@ class _addaerorecipeState extends State<addaerorecipe> {
                       blurRadius: 15,
                       spreadRadius: 5)
                 ]),
-                width: double.infinity,
-                height: 350,
+                
                 child: Row(
                   children: [
                     SizedBox(
