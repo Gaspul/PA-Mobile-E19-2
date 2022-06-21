@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:projekakhir_mobile_e19_2/item_card.dart';
 import 'package:projekakhir_mobile_e19_2/item_cardsee.dart';
 
 class chemex extends StatefulWidget {
@@ -96,7 +95,6 @@ class _addchemexState extends State<addchemex> {
                       blurRadius: 15,
                       spreadRadius: 5)
                 ]),
-                
                 child: Row(
                   children: [
                     SizedBox(
