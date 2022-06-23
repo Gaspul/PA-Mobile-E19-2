@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projekakhir_mobile_e19_2/UI/navdraw.dart';
 import 'package:projekakhir_mobile_e19_2/mainmenucontent/aeropress.dart';
 import 'package:projekakhir_mobile_e19_2/mainmenucontent/chemex.dart';
@@ -15,9 +16,12 @@ class mainmenu extends StatefulWidget {
 }
 
 class _mainmenuState extends State<mainmenu> {
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
   @override
   Widget build(BuildContext context) {
 
+    GoogleSignInAccount? user = _googleSignIn.currentUser;
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - kToolbarHeight - 170);
     final double itemWidth = size.width;
@@ -205,6 +209,18 @@ class _mainmenuState extends State<mainmenu> {
           ),
           Row(
             children: [
+              // ElevatedButton(
+              //   child: Text(
+              //     'Sign Out',
+              //     style: TextStyle(
+              //       color: Colors.white
+              //     ),
+              //   ),
+              //   onPressed: () async {
+              //     await _googleSignIn.signOut();
+
+              //   }
+              // ),
               SizedBox(width: 300,),
               IconButton(
                 icon: Icon(Icons.question_mark),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projekakhir_mobile_e19_2/UI/mainmenu.dart';
+import 'package:provider/provider.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -9,8 +12,12 @@ class LandingPage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<LandingPage> {
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
   @override
   Widget build(BuildContext context) {
+    GoogleSignInAccount? user = _googleSignIn.currentUser;
+
     return Scaffold(
         appBar: AppBar(
           title: Text('Brew Recipe by Njalok Roastery'),
@@ -52,16 +59,15 @@ class _MyHomePageState extends State<LandingPage> {
                 height: 40,
               ),
               ElevatedButton.icon(
-              onPressed: () {
+              onPressed: user != null ? null : () async {
+                await _googleSignIn.signIn();
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const mainmenu()
-                    ) 
-                  );
+                       context, MaterialPageRoute(builder: (context) => mainmenu()));
+                setState(() {
+                });
               },
-              icon: Icon(Icons.coffee),
-              label: Text("Brew Your Own Coffee"),
+              icon: FaIcon(FontAwesomeIcons.google),
+              label: Text(" Login With Google"),
               style: ButtonStyle(
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -70,7 +76,24 @@ class _MyHomePageState extends State<LandingPage> {
                   )
                 )
               ),
-            )
+            ),
+            ElevatedButton(
+              onPressed: user == null ? null : () async {
+                await _googleSignIn.signOut();
+              },
+              child: Text (
+                'Sign Out',
+                style: TextStyle(
+                  color: Colors.white
+                ),
+                )
+              ),
+            Text(
+              'Sign In (Signed ' + (user == null ? 'out' : 'in') + ')',
+              style: TextStyle(
+                color: Colors.white
+              ),
+              ),
               // ElevatedButton.icon(
               //   onPressed: () {
               //     Navigator.push(

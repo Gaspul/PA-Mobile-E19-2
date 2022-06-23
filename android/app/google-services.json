@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "529029168776-gp3alv6k9hf9s5k1brknqmrffkv2lgtj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.projekakhir_mobile_e19_2",
+            "certificate_hash": "abe0fdd470b52116d78823ad1c3363dde2f215bb"
+          }
+        },
+        {
           "client_id": "529029168776-0bcj1alfeebmio04iblf3664ngi19crg.apps.googleusercontent.com",
           "client_type": 3
         }
